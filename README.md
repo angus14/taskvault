@@ -4,6 +4,8 @@
 
 A buyer funds a NEAR vault, allocates a smaller budget to a project, approves offers for named purchases with each recipient and maximum amount, and authorizes agent accounts. The on-chain contract maintains `spent + reserved <= budget` and permits only one paid offer per purchase. A replacement agent sees the same order state and cannot pay it twice.
 
+**Watch:** [public X demo post](https://x.com/lutascosmi89050/status/2121651419199475936) · [recorded job dashboard](demo/index.html) · [transaction evidence](evidence/last-run.json)
+
 ## Reproduce the demo
 
 On Linux or Codespaces with Git, curl, cc, Python 3 and Internet access:
