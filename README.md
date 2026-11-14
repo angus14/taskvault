@@ -46,3 +46,7 @@ The design currently supports **native NEAR, one account-owned vault and owner-p
 The standalone client uses a deterministic offer selector, not an AI model. The batch unit test submits 100 requests in sequence while earlier reservations remain outstanding: 33 requests of 3 units are accepted, 67 are rejected, and zero project-budget violations occur. It does not test simultaneous network receipt arrival or production throughput.
 
 This was built for NEAR HACKATHON 2026. Suggested tracks: **AI Security & Defense**, **AI Swarms**, **Autonomous Business**. The distinction from a wallet spending limit is buyer-authorized purchases with mutually exclusive offers and payment-state continuity across agent handoffs. Reservations and deduplication themselves are known techniques; the project does not claim to invent them.
+
+## Independent project disclosure
+
+The same builder also submitted [RecallPay](https://github.com/angus14/recallpay) as a separate NEAR HACKATHON 2026 project. TaskVault controls a shared agent purchasing budget and handoffs. RecallPay handles paid-data corrections, dependent job pauses and prefunded refunds. The contracts, codebases and demos are independent.
