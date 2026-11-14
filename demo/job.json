@@ -1,0 +1,24 @@
+{
+  "job": "Buy research data and a review",
+  "project_id": "job",
+  "funded_milli_near": 1000,
+  "budget_milli_near": 100,
+  "purchases": [
+    {
+      "purchase_id": "data",
+      "latest_delivery_hours": 24,
+      "offers": [
+        {"order_id": "first", "vendor": "vendor.sandbox", "amount_milli_near": 70, "delivery_hours": 4},
+        {"order_id": "alternative", "vendor": "agent-c.sandbox", "amount_milli_near": 20, "delivery_hours": 72}
+      ]
+    },
+    {
+      "purchase_id": "failed-service",
+      "latest_delivery_hours": 24,
+      "offers": [
+        {"order_id": "failed", "vendor": "missing.sandbox", "amount_milli_near": 25, "delivery_hours": 4},
+        {"order_id": "fallback", "vendor": "vendor.sandbox", "amount_milli_near": 25, "delivery_hours": 8}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "agents": [
+    {
+      "account": "agent-a.sandbox",
+      "amount_milli_near": 70,
+      "offer": "first",
+      "project": "job",
+      "purchase": "data",
+      "status": "settled",
+      "tx": "5tZfZF56QA6XUTA6db13x9kF9NXFn2WgWTnSxMV7igUa"
+    },
+    {
+      "account": "agent-c.sandbox",
+      "amount_milli_near": 25,
+      "offer": "fallback",
+      "project": "job",
+      "purchase": "failed-service",
+      "status": "settled",
+      "tx": "GLywdToeJuvJMZ7VgDCAX7ie6VaTMKUmHAxWMEAH9p41"
+    }
+  ],
+  "events": [
+    {
+      "action": "Fund 1,000; authorize 100 and five offers",
+      "actor": "buyer.sandbox",
+      "available": 100,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "ready",
+        "first": "ready",
+        "second": "ready"
+      },
+      "outcome": "approved",
+      "project": "job",
+      "reserved": 0,
+      "spent": 0,
+      "step": "approved",
+      "tx": "HLg9B5deVQbjLvFdisA6byoEyjegpJ8YPdHcqcPVjMQX",
+      "vendor_delta": 0
+    },
+    {
+      "action": "Select the 4-hour data offer and pay vendor",
+      "actor": "agent-a.sandbox",
+      "available": 30,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "ready",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "settled",
+      "project": "job",
+      "reserved": 0,
+      "spent": 70,
+      "step": "first_paid",
+      "tx": "5tZfZF56QA6XUTA6db13x9kF9NXFn2WgWTnSxMV7igUa",
+      "vendor_delta": 70
+    },
+    {
+      "action": "Attempt another 70-unit purchase",
+      "actor": "agent-b.sandbox",
+      "available": 30,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "ready",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "rejected: budget",
+      "project": "job",
+      "reserved": 0,
+      "spent": 70,
+      "step": "over_budget",
+      "tx": "FZhYD6w2zZaRKbBRXZgjjxzanJAXNXJHR3gQFPZsYV5f",
+      "vendor_delta": 70
+    },
+    {
+      "action": "Retry the already-paid data order",
+      "actor": "agent-b.sandbox",
+      "available": 30,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "ready",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "rejected: duplicate",
+      "project": "job",
+      "reserved": 0,
+      "spent": 70,
+      "step": "duplicate",
+      "tx": "148oZY4zdpGcJLZuMqgMkzA5FuZBLfsZVsXErgWfHhQn",
+      "vendor_delta": 70
+    },
+    {
+      "action": "Try the other offer for the same purchase",
+      "actor": "agent-b.sandbox",
+      "available": 30,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "ready",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "rejected: already paid",
+      "project": "job",
+      "reserved": 0,
+      "spent": 70,
+      "step": "alternative",
+      "tx": "6FKJKn4g92BvGixGeMFR91G8HwV3DsomRTsMb4ugvyqw",
+      "vendor_delta": 70
+    },
+    {
+      "action": "Replace Agent A; payment history stays intact",
+      "actor": "buyer.sandbox",
+      "available": 30,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "ready",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "approved",
+      "project": "job",
+      "reserved": 0,
+      "spent": 70,
+      "step": "handoff",
+      "tx": "Auhkw8KhS1d1t3cF1XykPBEz46bRaLKJxqktyahFfRx9",
+      "vendor_delta": 70
+    },
+    {
+      "action": "Replacement retries paid order",
+      "actor": "agent-c.sandbox",
+      "available": 30,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "ready",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "rejected: duplicate",
+      "project": "job",
+      "reserved": 0,
+      "spent": 70,
+      "step": "handoff_retry",
+      "tx": "AzS9MWJiPJcTAZTaF5eHXnpRzd9Zcc4ZbTcMGhkAs1TR",
+      "vendor_delta": 70
+    },
+    {
+      "action": "Try first approved review vendor; transfer fails",
+      "actor": "agent-c.sandbox",
+      "available": 30,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "ready",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "failed: reservation released",
+      "project": "job",
+      "reserved": 0,
+      "spent": 70,
+      "step": "transfer_failed",
+      "tx": "8h7JLokxDNJZgkZdPUoqVC1cxr4v9ErLpHkA4K6WPVMW",
+      "vendor_delta": 70
+    },
+    {
+      "action": "Pay the approved review fallback 25",
+      "actor": "agent-c.sandbox",
+      "available": 5,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "settled",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "settled",
+      "project": "job",
+      "reserved": 0,
+      "spent": 95,
+      "step": "fallback_paid",
+      "tx": "GLywdToeJuvJMZ7VgDCAX7ie6VaTMKUmHAxWMEAH9p41",
+      "vendor_delta": 95
+    },
+    {
+      "action": "Close job and withdraw unused 5",
+      "actor": "buyer.sandbox",
+      "available": 0,
+      "budget": 100,
+      "closed": true,
+      "orders": {
+        "alternative": "ready",
+        "failed": "ready",
+        "fallback": "settled",
+        "first": "settled",
+        "second": "ready"
+      },
+      "outcome": "withdrawn",
+      "project": "job",
+      "reserved": 0,
+      "spent": 95,
+      "step": "unused_returned",
+      "tx": "9RJY7by5kHFBA5ZnZ3tFfaGwFAVUkLYULmD5GyKZb4Y4",
+      "vendor_delta": 95
+    },
+    {
+      "action": "Submit two 70-unit requests concurrently",
+      "actor": "agent-b.sandbox + agent-c.sandbox",
+      "available": 30,
+      "budget": 100,
+      "closed": false,
+      "orders": {
+        "race-a": "ready",
+        "race-b": "settled"
+      },
+      "outcome": "one settled; one rejected",
+      "project": "race",
+      "reserved": 0,
+      "spent": 70,
+      "step": "race",
+      "tx": "A21UnEdUVtMca3LF6UepQgoQeMw219jTmUdLV7X6QAZf",
+      "vendor_delta": 70
+    }
+  ],
+  "schema": 1,
+  "summary": {
+    "alternative_blocked": "true",
+    "budget": "100",
+    "chosen": "first",
+    "concurrent_accepted": "1",
+    "concurrent_requests": "2",
+    "duplicate_rejected": "true",
+    "failed_transfer_released": "true",
+    "fallback_paid": "25",
+    "first_paid": "70",
+    "second_70_rejected": "true",
+    "spent": "95",
+    "unused_withdrawn": "5",
+    "vault_funded": "1000"
+  },
+  "units": "milliNEAR"
+}
